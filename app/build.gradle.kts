@@ -35,7 +35,7 @@ android {
 }
 
 dependencies {
-    implementation("com.fearth.sample.android:samplelib:1.0.0")
+    implementation(libs.samplelib)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)

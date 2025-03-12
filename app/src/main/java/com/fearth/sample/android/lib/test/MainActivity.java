@@ -2,6 +2,7 @@ package com.fearth.sample.android.lib.test;
 
 import android.os.Bundle;
 
+import com.fearth.sample.android.samplelib.JsonHelper;
 import com.fearth.sample.android.samplelib.SampleLib;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -50,6 +51,18 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = new TextView(this);
         textView.setText(SampleLib.getMessage());
         setContentView(textView);
+
+        Person person = new Person("John Doe", 30);
+        String json = JsonHelper.toJson(person);
+        String text = "";
+        text += "Serialized JSON: " + json + "\n";
+        Person deserializedPerson = JsonHelper.fromJson(json, Person.class);
+        if (deserializedPerson != null) {
+            text += "Deserialized Object: " + deserializedPerson;
+        } else {
+            text += "Failed to deserialize JSON.";
+        }
+        textView.setText(textView.getText() + "\n" + text);
     }
 
     @Override
