@@ -10,7 +10,6 @@ fun loadEnv(): Properties {
 }
 
 val env = loadEnv()
-
 fun getEnv(key: String): String? {
     return env.getProperty(key) ?: System.getenv(key)
 }
